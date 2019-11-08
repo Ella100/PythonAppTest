@@ -1,0 +1,13 @@
+platformName: Android
+platformVersion: 7.0.1
+udid: 30120ca00704
+deviceName: 30120ca00704
+appPackage: com.android.chrome
+appActivity: org.chromium.chrome.browser.ChromeTabbedActivity
+noReset: True
+unicodeKeyboard: True
+resetKeyboard: True
+ip: 127.0.0.1
+port: 4723
+browserName: Chrome
+chromedriverExecutable: D:\Appium\node_modules\appium\node_modules\appium-chromedriver\chromedriver\win\chromedriver76.exe
