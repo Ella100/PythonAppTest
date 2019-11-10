@@ -123,7 +123,7 @@ class ReportTemplate(object):
         return trData
 
     #测试报告模板模板2
-    def reportTemplate_2(self,statisticsStr,trData):
+    def reportTemplate_2(self,statisticsStr,trData, deviceName):
         htmlStr = '''
         <!DOCTYPE html>
         <html>
@@ -286,7 +286,7 @@ class ReportTemplate(object):
         </html>'''%(time.strftime("%Y-%m-%d"))
         html = htmlStr + statisticsStr + trData + endStr
         t = time.strftime('%Y%m%d_%H%M%S',time.localtime())
-        newTestReport = test_report+'//testReport_H5_'+t+'.html'
+        newTestReport = test_report+'//testReport_H5_'+t+"_"+deviceName+'.html'
         with open(newTestReport,"w",encoding="utf-8") as fp:
             fp.write(html)
         return html

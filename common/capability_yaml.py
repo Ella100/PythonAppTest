@@ -3,6 +3,7 @@ import yaml
 import logging
 import logging.config
 import os
+import main
 from time import ctime
 import multiprocessing
 
@@ -18,8 +19,8 @@ def desired_caps():
 
     desired_caps['platformName']=data['platformName']
     desired_caps['platformVersion']=data['platformVersion']
-    desired_caps['udid']=data['udid']
-    desired_caps['deviceName']=data['deviceName']
+    desired_caps['udid'] = main.runObject.udid
+    desired_caps['deviceName'] = main.runObject.deviceName
     # desired_caps['appPackage']=data['appPackage']
     # desired_caps['appActivity']=data['appActivity']
     desired_caps['noReset']=data['noReset']
@@ -29,7 +30,7 @@ def desired_caps():
     desired_caps['browserName'] = data['browserName']
 
     logging.info("start app...")
-    driver =webdriver.Remote('http://'+str(data['ip'])+':'+str(data['port'])+'/wd/hub',desired_caps)
+    driver =webdriver.Remote('http://'+str(data['ip'])+':'+str(main.runObject.port)+'/wd/hub',desired_caps)
     return driver
 #构建desired进程组，由于有多个进行，所以进程定义成李列表
 # desired_process=[]

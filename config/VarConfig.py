@@ -10,19 +10,21 @@ screenPicturesDir = parentDirPath +"\\screenshots\\"
 work_dir = parentDirPath + "\\data"
 
 
-# 读取路径中的所有文件
-all_files = []
-for parent,dirnames,filenames in os.walk(work_dir):
-    for filename in filenames:
-        file = os.path.join(parent,filename)
-        all_files.append(file)
-
 # 提取路径中的所有Excel文件
 global excel_files
 excel_files = []
-for excel in all_files:
-    if excel.endswith('xlsx'):
-        excel_files.append(excel)
+
+def get_excel_files(work_dir_deviceName):
+    # 读取路径中的所有文件
+    all_files = []
+    for parent, dirnames, filenames in os.walk(work_dir_deviceName):
+        for filename in filenames:
+            file = os.path.join(parent, filename)
+            all_files.append(file)
+
+    for excel in all_files:
+        if excel.endswith('xlsx'):
+            excel_files.append(excel)
 
 # 创建解析Excel对象--zjq:多个文件共享变量，可以采用此种方法
 excelObj = ParseExcel()
